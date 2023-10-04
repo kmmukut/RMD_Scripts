@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
         }
         else
         {
-            inputFile.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            inputFile.ignore(MAXLINE, '\n');
         }
     }
 
