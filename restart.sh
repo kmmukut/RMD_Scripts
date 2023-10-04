@@ -11,7 +11,7 @@ echo $last_time_ns
 
 mkdir $last_time_ns
 
-mv $(find ./ -type f) $last_time_ns
+mv $(find . -maxdepth 1 -type f) $last_time_ns
 
 cd $last_time_ns
 
