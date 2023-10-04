@@ -1,9 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h> // Include time library
 
 int main(int argc, char *argv[])
 {
+    clock_t start, end; // Declare start and end variables
+    double cpu_time_used;
+
+    start = clock(); // Start the timer
+
     if (argc != 4)
     {
         printf("Usage: ./extract_dumps <input file> <output file> <timestep interval>\n");
@@ -48,6 +54,11 @@ int main(int argc, char *argv[])
 
     fclose(inputFile);
     fclose(outputFile);
+
+    end = clock();                                            // End the timer
+    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC; // Calculate time taken
+
+    printf("Time taken: %f seconds\n", cpu_time_used); // Print time taken
 
     return 0;
 }
